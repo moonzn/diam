@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar questão</title>
+</head>
+<body>
+
+    <h2>Criar questão</h2>
+
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+
+    <form action="{% url 'votacao:gravar_questao' %}" method="post">
+        {% csrf_token %}
+        <label for="nova_questao">Texto da nova questão:</label>
+        <input type="text" id="nova_questao" name="nova_questao"><br><br>
+        <input type="submit" value="Gravar nova Questão">
+    </form>
+
+</body>
+</html>
